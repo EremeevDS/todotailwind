@@ -1,0 +1,59 @@
+.active{
+   background-color: rgb(252, 237, 216);
+}
+.badge{
+   width: 15px;
+   height: 15px;
+   border-radius: 30px;
+   display: inline-flex;
+   margin-right: 10px;
+
+   &:last-child{
+      margin-right: 0;
+   }
+
+   &--green{
+      background-color: #42B883;
+   }
+   &--grey{
+      background-color: #C9D1D3;
+   }
+   &--blue{
+      background-color: #64C4ED;
+   }
+   &--pink{
+      background-color: #FFBBCC;
+   }
+   &--lime{
+      background-color: #B6E6BD;
+   }
+   &--purple{
+      background-color: #C355F5;
+   }
+   &--black{
+      background-color: #110133;
+   }
+   &--red{
+      background-color: #FF6464;
+   }
+
+   &--active{
+      border: 3px solid grey;
+   }
+}
+.list{
+   $self: &;
+
+   li{
+      &:hover #{$self}__remove-icon{
+         opacity: 0.1;
+      }
+      #{$self}__remove-icon{
+         opacity: 0;
+
+         &:hover{
+            opacity: .4;
+         }
+      }
+   }
+}
