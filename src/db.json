@@ -21,9 +21,10 @@
       "colorId": 2
     },
     {
-      "name": "dscdscd",
-      "colorId": 8,
-      "id": 5
+      "name": "Квартира",
+      "colorId": 2,
+      "tasks": [],
+      "id": 6
     }
   ],
   "tasks": [
@@ -71,15 +72,15 @@
     },
     {
       "listId": 1,
-      "text": "одноразка",
-      "completed": false,
-      "id": 22
-    },
-    {
-      "listId": 1,
       "text": "All works not bad",
       "completed": false,
       "id": 23
+    },
+    {
+      "listId": 6,
+      "text": "Купить клемник",
+      "completed": false,
+      "id": 24
     }
   ],
   "colors": [
