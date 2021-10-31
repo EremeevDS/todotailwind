@@ -24,7 +24,9 @@ function Tasks(props) {
 
    return (
       <div className='px-20 pt-20'>
-         <h2 className='text-indigo-400 text-5xl font-light pb-6 border-b-2 border-gray-100 mb-12'>{list.name}
+         <h2 className='text-5xl font-light pb-6 border-b-2 border-gray-100 mb-12'
+         style={{color: list.color.hex}}
+         >{list.name}
             <FontAwesomeIcon icon={faPencilAlt} onClick={editTitle} className='fill-current text-gray-200 text-2xl ml-4 hover:text-gray-500 cursor-pointer' />
          </h2>
          {!list.tasks.length &&

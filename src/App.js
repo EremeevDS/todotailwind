@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Route, Link, useHistory, useLocation } from 'react-router';
 
 import { faListUl, faTrash } from '@fortawesome/free-solid-svg-icons'
 import {List, AddList, Tasks, HelloPage} from './components'
@@ -13,6 +14,9 @@ function App() {
   const [selectedList, setSelectedList] = React.useState()
   const [showAll, setShowAll] = React.useState(false)
 
+  let history = useHistory();
+  let location = useLocation()
+
   React.useEffect(() =>{
     axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks').then(({data}) => {
       setLists(data)
@@ -21,6 +25,14 @@ function App() {
       setColors(data)
     });
   }, [])
+
+  React.useEffect(() => {
+    const listId = location.pathname.split('lists/')[1];
+    if (lists) {
+      const list = lists.find(list => list.id === Number(listId));
+      setSelectedList(list);
+    }
+  }, [lists, location.pathname]);
 
   const onAddList = (obj) =>{
     const newList = [...lists, obj]
@@ -34,7 +46,8 @@ function App() {
     })
   }
   const selectItem = (item) =>{
-    setSelectedList(item)
+    history.push(`/lists/${item.id}`)
+    //setSelectedList(item)
     setShowAll(false)
   }
   const onTitleEdit = (id,title) =>{
