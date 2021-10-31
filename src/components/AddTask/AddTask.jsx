@@ -22,7 +22,7 @@ function AddTask(props) {
          "completed": false
       }
       axios.post('http://localhost:3001/tasks', obj).then(({ data }) => {
-         onAddTask(list.id, obj)
+         onAddTask(list.id, data)
          toggleFormVizible()
          setInputValue('')
       })

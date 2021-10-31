@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Route, Link, useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 import { faListUl, faTrash } from '@fortawesome/free-solid-svg-icons'
 import {List, AddList, Tasks, HelloPage} from './components'
@@ -60,6 +60,7 @@ function App() {
     setLists(newList)
   }
   const showAllLists = () =>{
+    history.push('/lists')
     setSelectedList(null)
     setShowAll(true)
   }
@@ -71,6 +72,34 @@ function App() {
       return item
     })
     setLists(newList)
+  }
+  const onRemoveTask = (listId, taskId) =>{
+    axios.delete('http://localhost:3001/tasks/' + taskId).then(() =>{
+      const newList = lists.map(list =>{
+        if(list.id === listId){
+          list.tasks = list.tasks.filter(task => task.id !== taskId)
+        }
+        return list
+      })
+      setLists(newList)
+    })
+  }
+  const onEditTask = (listId, task) =>{
+    const newTitle = window.prompt('Введите новый заголовок', task.text)
+    axios.patch('http://localhost:3001/tasks/' + task.id, {text: newTitle}).then(({data})=>{
+      const newList = lists.map(list =>{
+        if(list.id === listId){
+          list.tasks = list.tasks.map(listTask =>{
+            if(listTask.id === task.id){
+              listTask.text = newTitle
+            }
+            return listTask
+          })
+        }
+        return list
+      })
+      setLists(newList)
+    })
   }
 
   return(
@@ -105,12 +134,17 @@ function App() {
           list={selectedList}
           onTitleEdit={onTitleEdit}
           onAddTask={onAddTask}
+          onRemove={onRemoveTask}
+          onEdit={onEditTask}
         />}
         {showAll && lists.map((list) => (
           <Tasks
+          key={list.id}
           list={list}
           onTitleEdit={onTitleEdit}
           onAddTask={onAddTask}
+          onRemove={onRemoveTask}
+          onEdit={onEditTask}
         />
         ))}
         {!selectedList && !showAll && < HelloPage />}

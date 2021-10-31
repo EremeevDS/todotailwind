@@ -17,3 +17,8 @@
       }
    }
 }
+.task{
+   &:hover .task__actions{
+      opacity: .3;
+   }
+}
