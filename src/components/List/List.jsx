@@ -9,7 +9,7 @@ function List(props) {
 
    return (
       <ul className='list mb-6' onClick={viziblePopup ? viziblePopup : activeAll}>
-         {items.map((el) => (
+         {items && items.map((el) => (
             <li
                key={el.id}
                onClick={() => {onSelectItem && onSelectItem(el)}}

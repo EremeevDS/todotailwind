@@ -38,7 +38,7 @@
       "id": 3,
       "listId": 2,
       "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
-      "completed": true
+      "completed": false
     },
     {
       "id": 4,
@@ -49,13 +49,13 @@
     {
       "listId": 2,
       "text": "123",
-      "completed": true,
+      "completed": false,
       "id": 5
     },
     {
       "listId": 4,
       "text": "Купить 1984!",
-      "completed": true,
+      "completed": false,
       "id": 10
     },
     {

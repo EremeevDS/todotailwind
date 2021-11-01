@@ -101,6 +101,23 @@ function App() {
       setLists(newList)
     })
   }
+  const onDoneTask = (listId, taskId) =>{
+    const importantState = lists.find(list => list.id === listId).tasks.find(task => task.id === taskId).completed
+    axios.patch('http://localhost:3001/tasks/' + taskId, {completed: !importantState}).then(({data}) =>{
+      const newList = lists.map(list =>{
+        if(list.id === listId){
+          list.tasks = list.tasks.map(task =>{
+            if(task.id === taskId){
+              task.completed = !task.completed
+            }
+            return task
+          })
+        }
+        return list
+      })
+      setLists(newList)
+    })
+  }
 
   return(
     <div className='flex h-screen'>
@@ -136,6 +153,7 @@ function App() {
           onAddTask={onAddTask}
           onRemove={onRemoveTask}
           onEdit={onEditTask}
+          onDone={onDoneTask}
         />}
         {showAll && lists.map((list) => (
           <Tasks

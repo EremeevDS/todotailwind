@@ -9,7 +9,7 @@ import { faPencilAlt, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons
 import './Tasks.scss'
 
 function Tasks(props) {
-   const { list, onTitleEdit, onAddTask, onRemove, onEdit } = props
+   const { list, onTitleEdit, onAddTask, onRemove, onEdit, onDone } = props
 
    const editTitle = () =>{
       const newTitle = window.prompt('Введите новый заголовок', list.name)
@@ -35,8 +35,17 @@ function Tasks(props) {
          {list.tasks && list.tasks.map((el) => (
             <div className='task flex items-center mb-6' key={el.id}>
                <div className='checkbox'>
-                  <input type="checkbox" id={`task${el.id}`} className='hidden' />
-                  <label htmlFor={`task${el.id}`} className='flex items-center justify-center w-6 h-6 border-2 rounded-full inline-block border-gray-300 cursor-pointer'>
+                  <input
+                     type="checkbox"
+                     id={`task${el.id}`}
+                     className='hidden'
+                     defaultChecked={el.completed}
+                  />
+                  <label
+                     onClick={() => onDone(el.listId, el.id)}
+                     htmlFor={`task${el.id}`}
+                     className='flex items-center justify-center w-6 h-6 border-2 rounded-full inline-block border-gray-300 cursor-pointer'
+                     >
                      <FontAwesomeIcon icon={faCheck} className='svg w-3 h-3 opacity-0' />
                   </label>
                </div>
