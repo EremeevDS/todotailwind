@@ -47,11 +47,11 @@ function AddTask(props) {
                      className='h-12 px-2 py-2 w-full rounded-md border text-md mb-2 hover:border-gray-400'
                   />
                   <button
-                     className='bg-green-300 py-2 px-6 rounded-md text-white text-md mr-2 hover:bg-green-400'
+                     className='w-full bg-green-300 py-2 px-6 rounded-md text-white text-md mr-2 mb-2 hover:bg-green-400 sm:w-auto sm:mb-0'
                      onClick={AddTask}
                   >Добавить</button>
                   <button
-                     className='bg-gray-200 py-2 px-6 rounded-md text-white text-md hover:bg-gray-300'
+                     className='w-full bg-gray-200 py-2 px-6 rounded-md text-white text-md hover:bg-gray-300 sm:w-auto'
                      onClick={toggleFormVizible}
                   >Отменить</button>
                </div>

@@ -23,14 +23,14 @@ function Tasks(props) {
    }
 
    return (
-      <div className='px-20 pt-20'>
-         <h2 className='text-5xl font-light pb-6 border-b-2 border-gray-100 mb-12'
+      <div className='pt-10 px-5 sm:pt-15 sm:px-10 md:pt-20'>
+         <h2 className='text-4xl mb-8 font-light pb-6 border-b-2 border-gray-100 md:mb-12 md:text-5xl'
          style={{color: list.color.hex}}
          >{list.name}
-            <FontAwesomeIcon icon={faPencilAlt} onClick={editTitle} className='fill-current text-gray-200 text-2xl ml-4 hover:text-gray-500 cursor-pointer' />
+            <FontAwesomeIcon icon={faPencilAlt} onClick={editTitle} className='fill-current text-gray-200 text-xl ml-4 hover:text-gray-400 cursor-pointer' />
          </h2>
          {list.tasks && !list.tasks.length &&
-            <h2 className='text-2xl font-bold text-gray-300 text-center whitespace-nowrap'>Задачи отсутствуют</h2>
+            <h2 className='text-2xl font-bold text-gray-300 whitespace-nowrap mb-12'>Задачи отсутствуют</h2>
          }
          {list.tasks && list.tasks.map((el) => (
             <div className='task flex items-center mb-6' key={el.id}>
@@ -49,8 +49,8 @@ function Tasks(props) {
                      <FontAwesomeIcon icon={faCheck} className='svg w-3 h-3 opacity-0' />
                   </label>
                </div>
-               <p className='flex-1 ml-2 text-xl'>{el.text}</p>
-               <div className='task__actions flex opacity-0'>
+               <p className='flex-1 ml-2 md:text-xl'>{el.text}</p>
+               <div className='task__actions flex opacity-30 lg:opacity-0'>
                   <div onClick={() =>onEdit(list.id, el)} className='py-1 px-2 rounded-sm cursor-pointer mr-1 hover:bg-gray-300'>
                      <FontAwesomeIcon icon={faPencilAlt} />
                   </div>

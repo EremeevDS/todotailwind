@@ -2,7 +2,7 @@
   "lists": [
     {
       "id": 1,
-      "name": "Продажи",
+      "name": "Продажи2",
       "colorId": 5
     },
     {
@@ -25,6 +25,12 @@
       "colorId": 2,
       "tasks": [],
       "id": 6
+    },
+    {
+      "name": "хуй",
+      "colorId": 3,
+      "tasks": [],
+      "id": 7
     }
   ],
   "tasks": [
@@ -53,12 +59,6 @@
       "id": 5
     },
     {
-      "listId": 4,
-      "text": "Купить 1984!",
-      "completed": false,
-      "id": 10
-    },
-    {
       "listId": 3,
       "text": "Ураа",
       "completed": false,
@@ -71,16 +71,22 @@
       "id": 21
     },
     {
-      "listId": 1,
-      "text": "All works not bad",
-      "completed": false,
-      "id": 23
-    },
-    {
       "listId": 6,
       "text": "Купить клемник",
-      "completed": false,
+      "completed": true,
       "id": 24
+    },
+    {
+      "listId": 1,
+      "text": "продажа",
+      "completed": false,
+      "id": 25
+    },
+    {
+      "listId": 1,
+      "text": "HQD CUVIE PLUS",
+      "completed": false,
+      "id": 26
     }
   ],
   "colors": [

@@ -2,6 +2,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 
+import { Badge } from '../'
+
 import './List.scss'
 function List(props) {
 
@@ -22,7 +24,10 @@ function List(props) {
                {icon ?
                   <FontAwesomeIcon icon={icon} className='inline-flex mr-2 opacity-40' />
                   :
-                  <i className={`badge badge--${el.color.name}`}></i>
+                  <Badge
+                        color={el.color.name}
+                        class={''}
+                  />
                }
                <span className='flex-1 mr-3'>{el.name}</span>
                {el.tasks && <span className='bg-gray-100 py-0.5 px-2 rounded-full text-xs'>{el.tasks.length}</span>}

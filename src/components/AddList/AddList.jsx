@@ -56,7 +56,7 @@ function AddList(props) {
                      <Badge
                         color={el.name}
                         onClick={() => setSelectedColor(el.id)}
-                        class={selectedColor === el.id && 'badge--active'}
+                        class={`${selectedColor === el.id && 'badge--active'} w-6 h-6`}
                      />
                   </li>
                ))}

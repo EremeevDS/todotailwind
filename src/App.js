@@ -2,8 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useHistory, useLocation } from 'react-router';
 
-import { faListUl, faTrash } from '@fortawesome/free-solid-svg-icons'
-import {List, AddList, Tasks, HelloPage} from './components'
+import {Tasks, HelloPage, Nav} from './components'
 
 import './App.css';
 
@@ -13,6 +12,7 @@ function App() {
   const [colors, setColors] = React.useState(null)
   const [selectedList, setSelectedList] = React.useState()
   const [showAll, setShowAll] = React.useState(false)
+  const [width, setWidth] = React.useState(window.innerWidth)
 
   let history = useHistory();
   let location = useLocation()
@@ -47,8 +47,8 @@ function App() {
   }
   const selectItem = (item) =>{
     history.push(`/lists/${item.id}`)
-    //setSelectedList(item)
     setShowAll(false)
+    setWidth(true)
   }
   const onTitleEdit = (id,title) =>{
     const newList = lists.map(el => {
@@ -63,6 +63,7 @@ function App() {
     history.push('/lists')
     setSelectedList(null)
     setShowAll(true)
+    setWidth(true)
   }
   const onAddTask = (listId, obj) =>{
     const newList = lists.map(item =>{
@@ -121,31 +122,18 @@ function App() {
 
   return(
     <div className='flex h-screen'>
-      <nav className='pt-20 px-10 bg-gray-50 border-r-2 border-gray-100 overflow-y-scroll'>
-        <List
-          icon={faListUl}
-          items={[
-          {
-            id: 0,
-            name: 'Все задачи',
-          }
-          ]}
-          activeAll={showAllLists}
-          showAll={showAll}
-        />
-        {lists && <List 
-          items={lists}
-          activeItem={selectedList}
-          delIcon={faTrash}
-          isRemovable={true}
-          onRemove={onRemoveList}
-          onSelectItem={selectItem}
-        />}
-        <AddList
-          colors={colors}
-          onAdd={onAddList}
-        />
-      </nav>
+      <Nav 
+        showAllLists={showAllLists}
+        showAll={showAll}
+        lists={lists}
+        selectedList={selectedList}
+        onRemoveList={onRemoveList}
+        selectItem={selectItem}
+        colors={colors}
+        onAddList={onAddList}
+        width={width}
+        setWidth={setWidth}
+      />
       <main className='flex-1 overflow-y-scroll'>
         {lists && selectedList && <Tasks
           list={selectedList}
@@ -163,6 +151,7 @@ function App() {
           onAddTask={onAddTask}
           onRemove={onRemoveTask}
           onEdit={onEditTask}
+          onDone={onDoneTask}
         />
         ))}
         {!selectedList && !showAll && < HelloPage />}
