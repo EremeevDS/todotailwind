@@ -1,0 +1,134 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "name": "Продажи2",
+      "colorId": 5
+    },
+    {
+      "id": 2,
+      "name": "Фронтенд",
+      "colorId": 4
+    },
+    {
+      "id": 3,
+      "name": "Фильмы и сериалы",
+      "colorId": 3
+    },
+    {
+      "id": 4,
+      "name": "Книги",
+      "colorId": 2
+    },
+    {
+      "name": "Квартира",
+      "colorId": 2,
+      "tasks": [],
+      "id": 6
+    },
+    {
+      "name": "хуй",
+      "colorId": 3,
+      "tasks": [],
+      "id": 7
+    }
+  ],
+  "tasks": [
+    {
+      "id": 2,
+      "listId": 2,
+      "text": "Изучить паттерны проектирования",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "listId": 2,
+      "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "listId": 2,
+      "text": "Redux (redux-observable, redux-saga)",
+      "completed": false
+    },
+    {
+      "listId": 2,
+      "text": "123",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "listId": 3,
+      "text": "Ураа",
+      "completed": false,
+      "id": 19
+    },
+    {
+      "listId": 3,
+      "text": "вавм",
+      "completed": false,
+      "id": 21
+    },
+    {
+      "listId": 6,
+      "text": "Купить клемник",
+      "completed": true,
+      "id": 24
+    },
+    {
+      "listId": 1,
+      "text": "продажа",
+      "completed": false,
+      "id": 25
+    },
+    {
+      "listId": 1,
+      "text": "HQD CUVIE PLUS",
+      "completed": false,
+      "id": 26
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "hex": "#C9D1D3",
+      "name": "grey"
+    },
+    {
+      "id": 2,
+      "hex": "#42B883",
+      "name": "green"
+    },
+    {
+      "id": 3,
+      "hex": "#64C4ED",
+      "name": "blue"
+    },
+    {
+      "id": 4,
+      "hex": "#FFBBCC",
+      "name": "pink"
+    },
+    {
+      "id": 5,
+      "hex": "#B6E6BD",
+      "name": "lime"
+    },
+    {
+      "id": 6,
+      "hex": "#C355F5",
+      "name": "purple"
+    },
+    {
+      "id": 7,
+      "hex": "#110133",
+      "name": "black"
+    },
+    {
+      "id": 8,
+      "hex": "#FF6464",
+      "name": "red"
+    }
+  ]
+}
